@@ -1,15 +1,30 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import colors from './reducers'
-import { createStore } from 'redux'
+import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
+import { Router, Route, browserHistory } from 'react-router'
+import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 import App from './containers/AppContainer'
+import Red from './components/Red'
 
-let store = createStore(colors)
 
-ReactDOM.render(
+import colors from './reducers'
+const store = createStore(
+  combineReducers({
+    colors,
+    routing: routerReducer
+  })
+)
+
+const history = syncHistoryWithStore(browserHistory, store)
+
+ReactDOM.render((
   <Provider store={store}>
-    <App />
-  </Provider>,
+    <Router history={history}>
+      <Route path="/" component={App}>
+        <Route path="red" component={Red} />
+      </Route>
+    </Router>
+  </Provider>),
   document.getElementById('root')
 )
