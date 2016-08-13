@@ -4,7 +4,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import { Router, Route, browserHistory } from 'react-router'
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
-import App from './containers/AppContainer'
+import App from './components/App'
 import Red from './components/Red'
 
 
@@ -21,9 +21,7 @@ const history = syncHistoryWithStore(browserHistory, store)
 ReactDOM.render((
   <Provider store={store}>
     <Router history={history}>
-      <Route path="/" component={App}>
-        <Route path="red" component={Red} />
-      </Route>
+      <Route path="/" component={App} />
     </Router>
   </Provider>),
   document.getElementById('root')
