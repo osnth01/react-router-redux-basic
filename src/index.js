@@ -5,7 +5,6 @@ import { Provider } from 'react-redux'
 import { Router, Route, browserHistory } from 'react-router'
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 import App from './components/App'
-import Red from './components/Red'
 
 
 import colors from './reducers'
