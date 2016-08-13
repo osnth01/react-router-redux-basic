@@ -8,7 +8,8 @@ const colors = (state = initialState, action) => {
   switch(action.type) {
     
     case 'CHANGE_COLOR_LEVEL':
-      return Object.assign(state, {
+
+      return Object.assign({}, state, {
         [action.color]: action.value
       })
       

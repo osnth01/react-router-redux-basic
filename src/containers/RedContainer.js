@@ -4,13 +4,13 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import Slider from '../components/Slider'
 
-const Red = ({ colors, changeColorLevel }) => {
+const Red = ({ value, changeColorLevel }) => {
   return (
     <div>
       <h1>Red</h1>
       <Slider
         color={'red'}
-        value={colors.red}
+        value={value}
         onChange={changeColorLevel} />
     </div>
   )
@@ -18,12 +18,12 @@ const Red = ({ colors, changeColorLevel }) => {
 
 Red.propTypes = {
   changeColorLevel: PropTypes.func.isRequired,
-  colors: PropTypes.object.isRequired
+  value: PropTypes.number.isRequired
 }
 
 function mapStateToProps(state) {
   return {
-    colors: state.colors
+    value: state.colors.red
   }
 }
 
