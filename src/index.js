@@ -7,6 +7,8 @@ import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 import App from './components/App'
 import ColorBox from './containers/ColorBoxContainer'
 import Red from './containers/RedContainer'
+import Green from './containers/GreenContainer'
+import Blue from './containers/BlueContainer'
 
 
 import colors from './reducers'
@@ -25,6 +27,8 @@ ReactDOM.render((
       <Route path="/" component={App} >
         <IndexRoute component={ColorBox} />
         <Route path="/red" component={Red} />
+        <Route path="/green" component={Green} />
+        <Route path="/blue" component={Blue} />
       </Route>
     </Router>
   </Provider>),
