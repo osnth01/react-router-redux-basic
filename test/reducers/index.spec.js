@@ -2,20 +2,11 @@ import expect from 'expect'
 import colors from '../../src/reducers'
 
 describe('colors reducer', () => {
-  const initialState = [
-    {
-      name: 'red',
-      value: 0
-    },
-    {
-      name: 'green',
-      value: 0
-    },
-    {
-      name: 'blue',
-      value: 0
-    }
-  ]
+  const initialState = {
+    red: 0,
+    green: 0,
+    blue: 0
+  }
 
   it('should have an initial state', () => {
     expect(colors(undefined, {}))
@@ -24,39 +15,21 @@ describe('colors reducer', () => {
 
   it('should change the red value', () => {
 
-    const newColorState = colors([
-      {
-        name: 'red',
-        value: 0
-      },
-      {
-        name: 'green',
-        value: 0
-      },
-      {
-        name: 'blue',
-        value: 0
-      }
-    ], {
+    const newColorState = colors({
+      red: 0,
+      green: 0,
+      blue: 0
+    }, {
       type: 'CHANGE_COLOR_LEVEL',
       color: 'red',
       value: 255
     })
 
-    expect(newColorState).toEqual([
-      {
-        name: 'red',
-        value: 255
-      },
-      {
-        name: 'green',
-        value: 0
-      },
-      {
-        name: 'blue',
-        value: 0
-      }
-    ])
+    expect(newColorState).toEqual({
+      red: 255,
+      green: 0,
+      blue: 0
+    })
   })
   
 })
